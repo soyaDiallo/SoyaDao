@@ -28,13 +28,22 @@ public class PosteDeCharge  {
 	@Column(length = 2)
 	String type_taux_horaire_ou_forfait;
 	
-//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "machine_numero_section", fetch = FetchType.LAZY)
-//	List<Operation> operations;
-//	
-//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "machine_numero_sous_section", fetch = FetchType.LAZY)
-//	List<Operation> operations2;
-//	
-//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "machine_est_machine", fetch = FetchType.LAZY)
-//	List<Operation> operations3;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "machine", fetch = FetchType.LAZY)
+	List<Operation> machine_numero_section;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "machine", fetch = FetchType.LAZY)
+	List<Operation> machine_numero_sous_section;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "machine", fetch = FetchType.LAZY)
+	List<Operation> machine_est_machine;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "main", fetch = FetchType.LAZY)
+	List<Operation> main_numero_section;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "main", fetch = FetchType.LAZY)
+	List<Operation> main_numero_sous_section;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "main", fetch = FetchType.LAZY)
+	List<Operation> main_est_machine;
 
 }
